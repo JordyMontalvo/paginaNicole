@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Serás mi San Valentín?</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .card {
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 90%;
+            box-sizing: border-box;
+        }
+        .card h1 {
+            font-size: 2rem;
+            color: #e63946;
+        }
+        .card p {
+            font-size: 1rem;
+            margin: 15px 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .yes {
+            background: #e63946;
+            color: white;
+        }
+        .yes:hover {
+            background: #c92334;
+        }
+        .no {
+            background: #ccc;
+            color: #333;
+            position: relative;
+        }
+        .no:hover {
+            background: #bbb;
+        }
+        @media (min-width: 768px) {
+            .card {
+                max-width: 400px;
+            }
+            .card h1 {
+                font-size: 2.5rem;
+            }
+            .card p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>¿Serás mi San Valentín?</h1>
+        <p>Eres muy especial para mí, y me encantaría compartir este día contigo. ❤️</p>
+        <div class="buttons">
+            <button class="button yes" onclick="alert('¡Sabía que dirías que sí! ❤️')">Sí</button>
+            <button class="button no" id="noButton">No</button>
+        </div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+
+        // Solo habilitamos el movimiento en pantallas grandes
+        if (window.innerWidth >= 768) {
+            noButton.addEventListener('mouseenter', () => {
+                const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+                const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+                noButton.style.position = 'absolute';
+                noButton.style.left = `${x}px`;
+                noButton.style.top = `${y}px`;
+            });
+        }
+    </script>
+</body>
+</html>
