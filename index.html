@@ -61,6 +61,18 @@
         .no:hover {
             background: #bbb;
         }
+        .hidden {
+            display: none;
+        }
+        .coupon-list {
+            text-align: left;
+        }
+        .coupon-list li {
+            margin: 10px 0;
+        }
+        .coupon-list input {
+            margin-right: 10px;
+        }
         @media (min-width: 768px) {
             .card {
                 max-width: 400px;
@@ -75,17 +87,35 @@
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>¿Serás mi San Valentín?</h1>
-        <p>Eres muy especial para mí, y me encantaría compartir este día contigo. ❤️</p>
+    <div class="card" id="mainCard">
+        <h1>¿quieres ser mi San Valentín?</h1>
+        <p>Eres muy importante para mi  y quisera compartir ese dia contigo golosa ❤️</p>
+            <h4>no selecciones nooooooooooooo</h4>
         <div class="buttons">
-            <button class="button yes" onclick="alert('¡Sabía que dirías que sí! ❤️')">Sí</button>
+            <button class="button yes" id="yesButton">Sí</button>
             <button class="button no" id="noButton">No</button>
         </div>
     </div>
 
+    <div class="card hidden" id="couponCard">
+        <h1>Elige tu cupón ❤️</h1>
+        <form id="couponForm">
+            <ul class="coupon-list">
+                <li><input type="checkbox" name="coupon" value="🐔 Un pollo a la brasa">🐔 Un pollo a la brasa.</li>
+                <li><input type="checkbox" name="coupon" value="⚡ Algo de Harry Potter">⚡ Algo de Harry Potter.</li>
+                <li><input type="checkbox" name="coupon" value="🍳 Cocinaré algo de tu preferencia (no vale criticar)">🍳 Cocinaré algo de tu preferencia (no vale criticar).</li>
+                <li><input type="checkbox" name="coupon" value="🚴‍♂️ Salida en bicicleta o picnic">🚴‍♂️ Salida en bicicleta y picnic.</li>
+            </ul>
+            <button class="button yes" type="submit" onclick="alert('gracias por Aceptar esos cupones son tus premios mas otras cosas aijijijij')">Aceptar</button>
+        </form>
+    </div>
+
     <script>
         const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+        const mainCard = document.getElementById('mainCard');
+        const couponCard = document.getElementById('couponCard');
+        const couponForm = document.getElementById('couponForm');
 
         // Solo habilitamos el movimiento en pantallas grandes
         if (window.innerWidth >= 768) {
@@ -97,6 +127,13 @@
                 noButton.style.top = `${y}px`;
             });
         }
+
+        // Cambiar a la vista de cupones
+        yesButton.addEventListener('click', () => {
+            mainCard.classList.add('hidden');
+            couponCard.classList.remove('hidden');
+        });
+
     </script>
 </body>
 </html>
